@@ -25,6 +25,10 @@ const menu = () => {
       handleMenu();
     }
 
+    if (e.target.closest('.link-price') && activeMenu) {
+      handleMenu();
+    }
+
     if (activeMenu && !e.target.closest('.menu')) {
       if (e.target === closeMenu || !e.target.closest('.popup-dialog-menu')) {
         handleMenu();
