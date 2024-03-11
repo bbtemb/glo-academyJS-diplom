@@ -1,16 +1,13 @@
-const showMenu = () => {
+const menu = () => {
   const popup = document.querySelector('.popup-menu');
-  const menuBtn = document.querySelector('.menu');
-  const menu = document.querySelector('.popup-dialog-menu');
+  const menuBlock = document.querySelector('.popup-dialog-menu');
   const closeMenu = document.querySelector('.close-menu');
   const body = document.querySelector('body');
-  const menuNavList = document.querySelector('.popup-menu-nav__item');
-  const buttonFooter = document.querySelector('.button-footer');
   let activeMenu = false;
 
   const handleMenu = () => {
     popup.classList.toggle('active');
-    menu.classList.toggle('active');
+    menuBlock.classList.toggle('active');
     activeMenu = !activeMenu;
   };
 
@@ -51,4 +48,4 @@ const showMenu = () => {
   });
 };
 
-export default showMenu;
+export default menu;

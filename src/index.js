@@ -1,5 +1,5 @@
-import showNumber from './modules/showNumber';
-import showMenu from './modules/showMenu';
+import headerNumber from './modules/headerNumber';
+import menu from './modules/menu';
 
-showNumber();
-showMenu();
+headerNumber();
+menu();

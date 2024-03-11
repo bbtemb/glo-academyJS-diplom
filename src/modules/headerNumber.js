@@ -1,4 +1,4 @@
-const showNumber = () => {
+const headerNumber = () => {
   const phoneAccord = document.querySelector(
     '.header-contacts__phone-number-accord .header-contacts__phone-number'
   );
@@ -11,4 +11,4 @@ const showNumber = () => {
     pnoneArrow.classList.toggle('active');
   });
 };
-export default showNumber;
+export default headerNumber;
