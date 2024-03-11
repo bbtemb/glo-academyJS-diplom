@@ -1,5 +1,5 @@
-import one from './modules/one';
-import two from './modules/two';
+import showNumber from './modules/showNumber';
+import showMenu from './modules/showMenu';
 
-one();
-two();
+showNumber();
+showMenu();
