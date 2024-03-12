@@ -1,4 +1,4 @@
-const sendForm = ({ formId, someElem = [] }) => {
+const sendForm = (formId) => {
   const sendData = (data) =>
     fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
@@ -19,14 +19,7 @@ const sendForm = ({ formId, someElem = [] }) => {
       formBody[key] = value;
     });
 
-    someElem.forEach((elem) => {
-      const element = document.getElementById(elem.id);
-      if (elem.type === 'block') {
-        formBody[elem.id] = element.textContent;
-      } else if (elem.type === 'input') {
-        formBody[elem.id] = element.value;
-      }
-    });
+    sendData(formBody);
   };
 
   try {
