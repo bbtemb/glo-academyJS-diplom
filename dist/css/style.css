@@ -9150,3 +9150,14 @@ strong {
 .error-message p {
   margin: 0;
 }
+
+.formula-item-popup.active {
+  visibility: visible;
+  opacity: 1;
+}
+.formula-item-popup.moved {
+  bottom: -180px;
+}
+.formula-item-popup.moved::before {
+  transform: rotate(180deg);
+}
