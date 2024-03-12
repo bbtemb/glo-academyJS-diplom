@@ -9127,3 +9127,26 @@ strong {
 .slider-dots {
   display: none;
 }
+
+/* Добавленные стили */
+
+.error-message {
+  background: #f8d7da; /* Цвет фона */
+  color: #721c24; /* Цвет текста */
+  border: 1px solid #f5c6cb; /* Граница */
+  padding: 10px; /* Внутренний отступ */
+  margin-bottom: 2px; /* Внешний отступ снизу */
+  border-radius: 5px; /* Скругленные углы */
+  opacity: 0.5;
+  font-size: 10px;
+  position: relative;
+  top: -20px;
+}
+
+.error-message.hide {
+  display: none;
+}
+
+.error-message p {
+  margin: 0; /* Убираем отступы у текста внутри блока */
+}
