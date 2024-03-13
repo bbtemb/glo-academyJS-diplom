@@ -4244,6 +4244,7 @@ div.wave-block:nth-child(17):after {
   text-align: center;
   color: #322823;
   min-height: 100%;
+  transition: 0.5s;
 }
 
 .reviews-slider__slide-img {
@@ -9179,4 +9180,8 @@ strong {
 
 .transparency-item.hidden {
   display: none;
+}
+.reviews-slider__slide.hidden {
+  display: none;
+  opacity: 0;
 }

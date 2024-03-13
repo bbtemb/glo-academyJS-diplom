@@ -9,6 +9,7 @@ import sliderRepairTypes from './modules/sliderRepairTypes';
 import sliderPortfolio from './modules/sliderPortfolio';
 import popupTransparency from './modules/popupTransparency';
 import popupConsultation from './modules/popupConsultation';
+import sliderReviews from './modules/sliderReviews';
 
 headerNumber();
 menu();
@@ -20,6 +21,7 @@ sliderRepairTypes();
 sliderPortfolio();
 popupTransparency();
 popupConsultation();
+sliderReviews();
 
 sendForm('feedback1');
 sendForm('feedback2');
