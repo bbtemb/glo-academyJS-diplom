@@ -9176,3 +9176,7 @@ strong {
 .popup-portfolio-text-slider {
   display: contents;
 }
+
+.transparency-item.hidden {
+  display: none;
+}
