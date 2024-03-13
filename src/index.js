@@ -6,6 +6,7 @@ import sendForm from './modules/sendForm';
 import popupPrivacy from './modules/popupPrivacy';
 import hints from './modules/hints';
 import sliderRepairTypes from './modules/sliderRepairTypes';
+import sliderPortfolio from './modules/sliderPortfolio';
 
 headerNumber();
 menu();
@@ -14,6 +15,7 @@ mask();
 popupPrivacy();
 // hints();
 sliderRepairTypes();
+sliderPortfolio();
 
 sendForm('feedback1');
 sendForm('feedback2');

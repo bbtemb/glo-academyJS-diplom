@@ -9155,9 +9155,24 @@ strong {
   visibility: visible;
   opacity: 1;
 }
+.popup-portfolio.active {
+  visibility: visible;
+  opacity: 1;
+}
 .formula-item-popup.moved {
   bottom: -180px;
 }
 .formula-item-popup.moved::before {
   transform: rotate(180deg);
+}
+
+.portfolio-slider {
+  overflow-x: scroll;
+}
+.portfolio-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.popup-portfolio-text-slider {
+  display: contents;
 }
