@@ -10,6 +10,7 @@ import sliderPortfolio from './modules/sliderPortfolio';
 import popupTransparency from './modules/popupTransparency';
 import popupConsultation from './modules/popupConsultation';
 import sliderReviews from './modules/sliderReviews';
+import faqAccordion from './modules/faqAccordion';
 
 headerNumber();
 menu();
@@ -22,6 +23,7 @@ sliderPortfolio();
 popupTransparency();
 popupConsultation();
 sliderReviews();
+faqAccordion();
 
 sendForm('feedback1');
 sendForm('feedback2');
