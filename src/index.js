@@ -8,6 +8,7 @@ import hints from './modules/hints';
 import sliderRepairTypes from './modules/sliderRepairTypes';
 import sliderPortfolio from './modules/sliderPortfolio';
 import popupTransparency from './modules/popupTransparency';
+import popupConsultation from './modules/popupConsultation';
 
 headerNumber();
 menu();
@@ -18,9 +19,11 @@ popupPrivacy();
 sliderRepairTypes();
 sliderPortfolio();
 popupTransparency();
+popupConsultation();
 
 sendForm('feedback1');
 sendForm('feedback2');
 sendForm('feedback3');
 sendForm('feedback4');
 sendForm('feedback5');
+sendForm('feedback6');

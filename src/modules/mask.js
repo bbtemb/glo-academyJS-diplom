@@ -1,6 +1,6 @@
 const mask = () => {
   const phoneInputs = document.querySelectorAll(
-    '#feedback-input1, #feedback-input2, #feedback-input3, #feedback-input4, #feedback-input5'
+    '#feedback-input1, #feedback-input2, #feedback-input3, #feedback-input4, #feedback-input5, #feedback-input6'
   );
 
   const prefixNumber = (str) => {
