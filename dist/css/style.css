@@ -9183,5 +9183,13 @@ strong {
 }
 .reviews-slider__slide.hidden {
   display: none;
-  opacity: 0;
+}
+.popup-repair-types-content-table__list.hidden {
+  display: none;
+}
+
+.button_o.popup-repair-types-nav__item.active {
+  background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
+  color: #000;
+  border: none;
 }

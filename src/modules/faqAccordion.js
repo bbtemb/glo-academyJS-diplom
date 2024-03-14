@@ -1,7 +1,6 @@
 const faqAccordion = () => {
   const accordion = document.querySelector('.accordion');
   const titleBlocks = document.querySelectorAll('h2.title_block');
-  console.log(titleBlocks);
 
   titleBlocks.forEach((item) => {
     item.addEventListener('click', (e) => {
