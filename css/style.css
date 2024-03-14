@@ -4244,6 +4244,7 @@ div.wave-block:nth-child(17):after {
   text-align: center;
   color: #322823;
   min-height: 100%;
+  transition: 0.5s;
 }
 
 .reviews-slider__slide-img {
@@ -9126,4 +9127,69 @@ strong {
 
 .slider-dots {
   display: none;
+}
+
+/* Добавленные стили */
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+  opacity: 0.5;
+  font-size: 10px;
+  position: relative;
+  top: -20px;
+}
+
+.error-message.hide {
+  display: none;
+}
+
+.error-message p {
+  margin: 0;
+}
+
+.formula-item-popup.active {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-portfolio.active {
+  visibility: visible;
+  opacity: 1;
+}
+.formula-item-popup.moved {
+  bottom: -180px;
+}
+.formula-item-popup.moved::before {
+  transform: rotate(180deg);
+}
+
+.portfolio-slider {
+  overflow-x: scroll;
+}
+.portfolio-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.popup-portfolio-text-slider {
+  display: contents;
+}
+
+.transparency-item.hidden {
+  display: none;
+}
+.reviews-slider__slide.hidden {
+  display: none;
+}
+.popup-repair-types-content-table__list.hidden {
+  display: none;
+}
+
+.button_o.popup-repair-types-nav__item.active {
+  background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
+  color: #000;
+  border: none;
 }
