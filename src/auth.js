@@ -28,7 +28,7 @@ const auth = () => {
             document.cookie = 'auth=true';
             document.cookie = `name=${name.value}`;
             document.cookie = `password=${password.value}`;
-            window.location.href = window.location.origin + '/admin/table.html';
+            window.location.href = window.location.href + '/admin/table.html';
           } else if (
             item.name !== name.value &&
             item.password !== password.value
