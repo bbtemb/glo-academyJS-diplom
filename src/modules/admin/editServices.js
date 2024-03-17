@@ -47,7 +47,7 @@ export const editServices = () => {
         };
         console.log(editedService);
         service.editService(id, editedService).then(() => {
-          service.getUsers().then((services) => {
+          service.getServices().then((services) => {
             render(services);
             form.reset();
             form.removeAttribute('data-method');
