@@ -22,7 +22,6 @@ export const serviceList = (services) => {
 
   serviceList.addEventListener('change', (e) => {
     const type = e.target.value;
-    console.log(type);
     if (type === 'Все услуги') {
       render(services);
       return;

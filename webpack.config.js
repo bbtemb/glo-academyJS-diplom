@@ -13,7 +13,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    hot: true,
+    hot: false,
+    liveReload: false,
     static: {
       directory: './dist',
       watch: true,

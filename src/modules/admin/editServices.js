@@ -20,11 +20,9 @@ export const editServices = () => {
       modal.classList.add('active');
       change = true;
       modalHeader.innerHTML = 'Редактирование услуги';
-      console.log(e.target.closest('tr'));
       const tr = e.target.closest('tr');
       id = tr.querySelector('.table__id').innerText;
 
-      console.log(id);
       service.getService(id).then((item) => {
         nameInput.value = item.name;
         typeInput.value = item.type;
@@ -45,7 +43,6 @@ export const editServices = () => {
           units: unitsInput.value,
           cost: costInput.value,
         };
-        console.log(editedService);
         service.editService(id, editedService).then(() => {
           service.getServices().then((services) => {
             render(services);

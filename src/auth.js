@@ -1,6 +1,8 @@
 const auth = () => {
   const name = document.querySelector('#name');
+  const nameWarning = document.querySelector('#name-warning');
   const password = document.querySelector('#password');
+  const passwordWarning = document.querySelector('#password-warning');
   const button = document.querySelector('.button-ui_firm');
   const form = document.querySelector('form');
 
@@ -16,26 +18,27 @@ const auth = () => {
       });
   };
 
-  function authenticateUser(username, password) {
-    const user = users.find(
-      (user) => user.username === username && user.password === password
-    );
-  }
   const submitForm = () => {
     if (name.value && password.value) {
       fetchData().then((data) => {
         data.forEach((item) => {
+          nameWarning.classList.remove('active');
+          passwordWarning.classList.remove('active');
           if (item.name === name.value && item.password === password.value) {
-            console.log('Вход выполнен');
+            document.cookie = 'auth=true';
+            document.cookie = `name=${name.value}`;
+            document.cookie = `password=${password.value}`;
+            window.location.href = '/admin/table.html';
           } else if (
             item.name !== name.value &&
             item.password !== password.value
           ) {
-            console.log('Неверное имя и пароль');
+            nameWarning.classList.add('active');
+            passwordWarning.classList.add('active');
           } else if (item.name !== name.value) {
-            console.log('Неверное имя');
+            nameWarning.classList.add('active');
           } else if (item.password !== password.value) {
-            console.log('Неверное имя');
+            passwordWarning.classList.add('active');
           }
         });
       });

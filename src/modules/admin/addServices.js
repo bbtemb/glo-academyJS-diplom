@@ -13,8 +13,6 @@ export const addServices = () => {
   const costInput = document.querySelector('#cost');
   let add = false;
 
-  console.log(form);
-
   body.addEventListener('click', (e) => {
     if (e.target.closest('.btn-addItem')) {
       form.reset();
@@ -54,6 +52,7 @@ export const addServices = () => {
           });
         }
         modal.classList.remove('active');
+        add = false;
       }
     }
   });

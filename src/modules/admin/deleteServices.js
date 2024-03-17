@@ -8,7 +8,6 @@ export const deleteServices = () => {
     if (e.target.closest('.action-remove')) {
       const tr = e.target.closest('tr');
       id = tr.querySelector('.table__id').innerText;
-      console.log(id);
       service.removeService(id).then((res) => {
         service.getServices().then((services) => {
           render(services);

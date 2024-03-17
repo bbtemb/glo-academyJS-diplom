@@ -4,6 +4,16 @@
       "name": "admin",
       "password": "admin",
       "id": "02ff"
+    },
+    {
+      "name": "test",
+      "password": "test",
+      "id": "4b5f"
+    },
+    {
+      "name": "user",
+      "password": "user",
+      "id": "38c9"
     }
   ],
   "services": [
@@ -646,13 +656,6 @@
     },
     {
       "id": "508326368",
-      "type": "Тестовый тип",
-      "name": "Тестовая работа: тест",
-      "units": "шт",
-      "cost": "300"
-    },
-    {
-      "id": "5026478688",
       "type": "Тестовый тип",
       "name": "Тестовая работа: тест",
       "units": "шт",
