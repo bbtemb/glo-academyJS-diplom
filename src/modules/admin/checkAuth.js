@@ -12,6 +12,6 @@ export const checkAuth = () => {
 
   if (getCookieValue('auth') === 'true') {
   } else {
-    window.location.href = '/admin/';
+    window.location.href = `${window.location.origin}` + `/admin/`;
   }
 };
