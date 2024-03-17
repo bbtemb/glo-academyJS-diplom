@@ -3,9 +3,13 @@ const path = require('path');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: './index.js',
+  entry: {
+    main: './index.js',
+    admin: './admin.js',
+    auth: './auth.js',
+  },
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {

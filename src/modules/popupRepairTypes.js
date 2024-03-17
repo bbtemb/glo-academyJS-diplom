@@ -10,9 +10,10 @@ const popupRepairTypes = () => {
   let popupRepairTypesActive = false;
 
   const fetchData = () => {
-    return fetch('./db/db.json')
+    return fetch('http://localhost:3000/services')
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         return data;
       })
       .catch((error) => {
