@@ -1,99 +1,106 @@
 const sliderRepairTypes = () => {
-  const slider1 = document.querySelector('.types-repair1');
-  const slider2 = document.querySelector('.types-repair2');
-  const slider3 = document.querySelector('.types-repair3');
-  const slider4 = document.querySelector('.types-repair4');
-  const slider5 = document.querySelector('.types-repair5');
-
+  const body = document.querySelector('body');
+  const slider = document.querySelector('.repair-types-slider');
   let sliderBlock = document.querySelector(`.types-repair1`);
-  let arrowRight = document.getElementById('repair-types-arrow_right');
-  let arrowLeft = document.getElementById('repair-types-arrow_left');
+  let buttons = document.querySelectorAll('.repair-types-nav__item');
   let slides = sliderBlock.querySelectorAll('.repair-types-slider__slide');
   let countCurrent = document.querySelector('.slider-counter-content__current');
+  let countTotal = document.querySelector('.slider-counter-content__total');
+  let event = new Event('click');
+
   let currentSlider = 1;
-  let total = 0;
+  let currentSlide = 1;
+  let total = slides.length;
 
-  let obj = {
-    curSlide1: 0,
-    curSlide2: 0,
-    curSlide3: 0,
-    curSlide4: 0,
-    curSlide5: 0,
+  const initSlides = (arr, uniqPrefix) => {
+    arr.forEach((item, index) => {
+      item.setAttribute('id', `${uniqPrefix}-${index + 1}`);
+    });
   };
 
-  const updateSlider = (id) => {
-    sliderBlock = document.querySelector(`.types-repair${id}`);
-    countCurrent = document.querySelector('.slider-counter-content__current');
-    const countTotal = document.querySelector('.slider-counter-content__total');
-    slides = sliderBlock.querySelectorAll('.repair-types-slider__slide');
-    countCurrent.innerHTML = obj[`curSlide${id}`] + 1;
-    total = slides.length - 1;
-    countTotal.innerHTML = slides.length;
-    arrowRight = document.getElementById('repair-types-arrow_right');
-    arrowLeft = document.getElementById('repair-types-arrow_left');
-  };
-
-  const nextSlide = (id) => {
-    console.log(obj[`curSlide${id}`]);
-    if (obj[`curSlide${id}`] < total) {
-      sliderBlock.prepend(slides[obj[`curSlide${id}`] + 1]);
-      obj[`curSlide${id}`] = obj[`curSlide${id}`] + 1;
-      slides = sliderBlock.querySelectorAll('.repair-types-slider__slide');
-      countCurrent.innerHTML = obj[`curSlide${id}`] + 1;
-    }
-  };
-  const prevSlide = (id) => {
-    if (obj[`curSlide${id}`] > 0) {
-      sliderBlock.append(slides[0]);
-      obj[`curSlide${id}`] = obj[`curSlide${id}`] - 1;
-      slides = sliderBlock.querySelectorAll('.repair-types-slider__slide');
-      countCurrent.innerHTML = countCurrent.innerHTML - 1;
-    }
-  };
-
-  const sliderSwitch = () => {
-    const sliderTypesBlock = document.querySelector('.repair-types-slider');
-    let sliderTypesList = sliderTypesBlock.querySelectorAll(
-      '.repair-types-slider>div'
+  const prevSlide = (container, uniqPrefix) => {
+    let newSlide = container.querySelector(
+      `#${uniqPrefix}-${currentSlide - 1}`
     );
-    const repairList = document.querySelectorAll('.repair-types-nav__item');
-    let sliderId = '';
-    sliderTypesList.forEach((item, index) => {
-      item.getAttribute(`id` + index + 1);
-    });
-
-    repairList.forEach((item) => {
-      item.addEventListener('click', (e) => {
-        repairList.forEach((item) => {
-          item.classList.remove('active');
-        });
-        e.target.classList.add('active');
-        if (item.classList.contains('active')) {
-          sliderId = e.target.getAttribute('id');
-        }
-        currentSlider = sliderId.toString().slice(-1);
-
-        updateSlider(currentSlider);
-
-        sliderTypesBlock.prepend(sliderBlock);
-        sliderTypesList = sliderTypesBlock.querySelectorAll(
-          '.repair-types-slider>div'
-        );
-        console.log(sliderTypesList);
-      });
-    });
+    container.prepend(newSlide);
   };
 
-  sliderSwitch();
-  updateSlider(currentSlider);
+  const nextSlide = (container, uniqPrefix) => {
+    let newSlide = container.querySelector(
+      `#${uniqPrefix}-${currentSlide + 1}`
+    );
+    container.prepend(newSlide);
+  };
 
-  arrowLeft.addEventListener('click', (e) => {
-    prevSlide(currentSlider);
-    console.log(obj);
+  initSlides(slides, 'repair-types-slider__slide');
+
+  buttons.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      buttons.forEach((item) => {
+        item.classList.remove('active');
+      });
+      item.classList.add('active');
+      currentSlider = e.target.getAttribute('id').substr(-1);
+      sliderBlock = document.querySelector(`.types-repair${currentSlider}`);
+      slides = sliderBlock.querySelectorAll('.repair-types-slider__slide');
+      initSlides(slides, 'repair-types-slider__slide');
+      slider.prepend(sliderBlock);
+      total = slides.length;
+      countTotal.innerText = total;
+      currentSlide = 1;
+      countCurrent.innerText = currentSlide;
+    });
   });
-  arrowRight.addEventListener('click', (e) => {
-    nextSlide(currentSlider);
-    console.log(obj);
+
+  body.addEventListener('click', (e) => {
+    if (e.target.closest('#repair-types-arrow_right')) {
+      if (currentSlide < total) {
+        nextSlide(sliderBlock, 'repair-types-slider__slide');
+        currentSlide++;
+        countCurrent.innerText = currentSlide;
+      }
+    }
+    if (e.target.closest('#repair-types-arrow_left')) {
+      if (currentSlide > 1) {
+        prevSlide(sliderBlock, 'repair-types-slider__slide');
+        currentSlide--;
+        countCurrent.innerText = currentSlide;
+      }
+    }
   });
+
+  if (screen.width < 1025) {
+    const container = document.querySelector('.repair-types-nav');
+    let button = document.querySelector(`#repair-slider-${currentSlider}`);
+    let scrollPosition = 0;
+    let scrollWidth = container.scrollWidth - container.clientWidth;
+
+    body.addEventListener('click', (e) => {
+      if (e.target.closest('#nav-arrow-repair-left_base')) {
+        if (currentSlider > 1) {
+          currentSlider--;
+          button = document.querySelector(`#repair-slider-${currentSlider}`);
+          document
+            .querySelector(`#repair-slider-${currentSlider}`)
+            .dispatchEvent(event);
+          container.scrollLeft -= button.offsetWidth;
+          if (scrollPosition < 0) scrollPosition = 0;
+        }
+      }
+      if (e.target.closest('#nav-arrow-repair-right_base')) {
+        if (currentSlider < 5) {
+          currentSlider++;
+          button = document.querySelector(`#repair-slider-${currentSlider}`);
+          document
+            .querySelector(`#repair-slider-${currentSlider}`)
+            .dispatchEvent(event);
+          container.scrollLeft += button.offsetWidth;
+          if (scrollPosition > scrollWidth) scrollPosition = scrollWidth;
+        }
+      }
+    });
+  }
+
+  countTotal.innerText = total;
 };
 export default sliderRepairTypes;

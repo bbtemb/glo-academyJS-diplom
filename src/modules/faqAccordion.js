@@ -5,11 +5,15 @@ const faqAccordion = () => {
   titleBlocks.forEach((item) => {
     item.addEventListener('click', (e) => {
       titleBlocks.forEach((item) => {
-        if (item.classList.contains('msg-active')) {
-          item.classList.remove('msg-active');
+        if (e.target.classList.contains('msg-active')) {
+          e.target.classList.remove('msg-active');
+        } else {
+          titleBlocks.forEach((item) => {
+            item.classList.remove('msg-active');
+          });
+          e.target.classList.add('msg-active');
         }
       });
-      e.target.classList.toggle('msg-active');
     });
   });
 };

@@ -13,7 +13,6 @@ const popupRepairTypes = () => {
     return fetch('http://localhost:3000/services')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         return data;
       })
       .catch((error) => {
@@ -80,7 +79,6 @@ const popupRepairTypes = () => {
       ) {
         popup.style.visibility = 'hidden';
         popupRepairTypesActive = !popupRepairTypesActive;
-        console.log(popupRepairTypesActive);
       }
     }
   });

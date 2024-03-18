@@ -1,5 +1,6 @@
 const sendForm = (formId) => {
   const form = document.getElementById(formId);
+  const inputs = form.querySelectorAll('input');
   const checkbox = form.querySelector('.checkbox__input');
   const errorMessage = document.createElement('div');
   const popup = document.querySelector('.popup-thank');
@@ -23,7 +24,6 @@ const sendForm = (formId) => {
     formData.forEach((value, key) => {
       formBody[key] = value;
     });
-    console.log(formBody);
 
     sendData(formBody);
   };
@@ -34,7 +34,6 @@ const sendForm = (formId) => {
 
     body.addEventListener('click', (e) => {
       if (popupThank) {
-        console.dir(e.target);
         if (
           e.target.closest('.close') ||
           e.target.className === 'popup popup-thank'

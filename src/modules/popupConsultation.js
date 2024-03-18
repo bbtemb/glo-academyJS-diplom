@@ -10,7 +10,6 @@ const popupConsultation = () => {
     }
 
     if (popupConsultation) {
-      console.dir(e.target);
       if (
         e.target.closest('.close') ||
         e.target.className === 'popup popup-consultation'

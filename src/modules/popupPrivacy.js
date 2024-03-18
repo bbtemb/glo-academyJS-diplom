@@ -7,18 +7,15 @@ const popupPrivacy = () => {
     if (e.target.closest('span.link-privacy')) {
       popup.style.visibility = 'visible';
       popupPrivacy = !popupPrivacy;
-      console.log(popupPrivacy);
     }
 
     if (popupPrivacy) {
-      console.dir(e.target);
       if (
         e.target.closest('.close') ||
         e.target.className === 'popup popup-privacy'
       ) {
         popup.style.visibility = 'hidden';
         popupPrivacy = !popupPrivacy;
-        console.log(popupPrivacy);
       }
     }
   });

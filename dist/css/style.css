@@ -1218,9 +1218,10 @@ template,
   justify-content: center;
 }
 
-.formula-title {
+.section-title.formula-title {
   max-width: 391px;
   line-height: 45px;
+  z-index: -10;
 }
 
 @media (max-width: 1024px) {
@@ -1378,6 +1379,7 @@ template,
   -webkit-transform: translate3d(0, -5px, 0);
   transform: translate3d(0, -5px, 0);
   opacity: 0.1;
+  z-index: 10;
 }
 
 .formula-item-popup p {
@@ -1388,6 +1390,8 @@ template,
   .formula-item-popup {
     padding-top: 35px;
     top: 155px;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -2317,9 +2321,24 @@ div.wave-block:nth-child(17):after {
   z-index: 1;
 }
 
-@media (max-width: 1140px) {
+@media (min-width: 575px) {
   .portfolio-slider {
-    width: 92%;
+    width: 82%;
+  }
+}
+@media (min-width: 901px) {
+  .portfolio-slider {
+    width: 94.5%;
+  }
+}
+@media (min-width: 1025px) {
+  .portfolio-slider {
+    width: 70%;
+  }
+}
+@media (min-width: 1144px) {
+  .portfolio-slider {
+    width: 100%;
   }
 }
 
@@ -2383,6 +2402,12 @@ div.wave-block:nth-child(17):after {
   opacity: 1;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+@media (max-width: 575px) {
+  .portfolio-slider__slide-frame:hover .item-hover {
+    visibility: hidden;
+  }
 }
 
 .portfolio-slider__slide-frame-img {
@@ -4946,7 +4971,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .popup-dialog-portfolio {
-    height: 857px;
+    max-height: 556px;
   }
 }
 
@@ -7136,7 +7161,7 @@ div.wave-block:nth-child(17):after {
   position: absolute;
   top: 50%;
   margin-top: -8px;
-  z-index: 1;
+  z-index: 999;
   cursor: pointer;
 }
 
@@ -7465,8 +7490,13 @@ div.wave-block:nth-child(17):after {
   position: absolute;
   width: 28px;
   height: 40px;
-  top: 50%;
   margin-top: -20px;
+}
+
+@media (max-width: 1024px) {
+  .popup-arrow {
+    top: 50%;
+  }
 }
 
 .popup-arrow svg path {
@@ -9163,6 +9193,10 @@ strong {
 .formula-item-popup.moved {
   bottom: -180px;
 }
+.formula-item-popup.moved.formula-item-popup-03,
+.formula-item-popup.moved.formula-item-popup-05 {
+  bottom: -240px;
+}
 .formula-item-popup.moved::before {
   transform: rotate(180deg);
 }
@@ -9176,6 +9210,13 @@ strong {
 
 .popup-portfolio-text-slider {
   display: contents;
+}
+
+@media (max-width: 768px) {
+  .mobile-show-translate {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
 }
 
 .transparency-item.hidden {
@@ -9192,4 +9233,56 @@ strong {
   background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
   color: #000;
   border: none;
+}
+
+@media (max-width: 1024px) {
+  .repair-types-nav,
+  .nav-list-repair {
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .repair-types-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.formula-slider__slide {
+  display: none;
+  opacity: 1;
+}
+
+.formula-slider__slide.active {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .popup-dialog-portfolio {
+    max-height: 556px;
+  }
+
+  .popup-arrow {
+    cursor: pointer;
+    top: 50%;
+  }
+
+  #popup-portfolio-counter {
+    bottom: 3%;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .popup-arrow {
+    top: 5%;
+  }
+
+  #popup-portfolio-counter {
+    bottom: 90.4%;
+    margin-left: 0;
+  }
+}
+
+.portfolio-slider__slide-frame.hidden {
+  display: none;
 }

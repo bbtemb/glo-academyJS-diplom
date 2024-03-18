@@ -1,5 +1,7 @@
 const hints = () => {
   const formulaItems = document.querySelectorAll('.formula-item');
+  const popups = document.querySelectorAll('.formula-item-popup');
+  const formulaTitle = document.querySelector('.formula-title');
   formulaItems.forEach((item) => {
     item.addEventListener('mouseenter', (e) => {
       const popup = item.querySelector('.formula-item-popup');
@@ -9,39 +11,56 @@ const hints = () => {
       const popup = item.querySelector('.formula-item-popup');
       popup.classList.remove('active');
     });
+
+    window.addEventListener('scroll', (e) => {
+      formulaItems.forEach((item, i) => {
+        if (item.getBoundingClientRect().y < popups[i].offsetHeight - 20) {
+          popups[i].classList.add('moved');
+        } else {
+          popups[i].classList.remove('moved');
+        }
+      });
+    });
   });
 
-  // const popup1 = item.querySelector('.formula-item-popup-01');
+  if (screen.width < 1025) {
+    const container = document.querySelector('.formula-slider');
+    const slides = container.querySelectorAll('.formula-slider__slide');
+    const body = document.querySelector('body');
+    let currentSlide = 1;
+    let totalSlides = slides.length;
 
-  function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    var viewHeight = Math.max(
-      document.documentElement.clientHeight,
-      window.innerHeight
-    );
-    var threshold = 0.7;
+    const updateSlides = () => {
+      slides.forEach((item, i) => {
+        if (i + 1 === currentSlide) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    };
 
-    return !(
-      rect.bottom < 0 ||
-      rect.top > viewHeight ||
-      rect.height * threshold > viewHeight
-    );
+    body.addEventListener('click', (e) => {
+      if (e.target.closest('#formula-arrow_right')) {
+        if (currentSlide < totalSlides) {
+          currentSlide++;
+          updateSlides();
+        } else {
+          currentSlide = 1;
+          updateSlides();
+        }
+      }
+      if (e.target.closest('#formula-arrow_left')) {
+        if (currentSlide > 1) {
+          currentSlide--;
+          updateSlides();
+        } else {
+          currentSlide = totalSlides;
+          updateSlides();
+        }
+      }
+    });
   }
-
-  function addClassIfInView(element, classToAdd) {
-    if (isElementInViewport(element)) {
-      element.classList.remove(classToAdd);
-    } else {
-      element.classList.add(classToAdd);
-    }
-  }
-
-  // Пример использования
-  var element = document.querySelector('.formula-item-popup-01');
-
-  window.addEventListener('scroll', function () {
-    addClassIfInView(element, 'moved');
-  });
 };
 
 export default hints;

@@ -17,7 +17,7 @@ menu();
 popupRepairTypes();
 mask();
 popupPrivacy();
-// hints();
+hints();
 sliderRepairTypes();
 sliderPortfolio();
 popupTransparency();
