@@ -12,15 +12,17 @@ const hints = () => {
       popup.classList.remove('active');
     });
 
-    window.addEventListener('scroll', (e) => {
-      formulaItems.forEach((item, i) => {
-        if (item.getBoundingClientRect().y < popups[i].offsetHeight - 20) {
-          popups[i].classList.add('moved');
-        } else {
-          popups[i].classList.remove('moved');
-        }
+    if (screen.width > 1024) {
+      window.addEventListener('scroll', (e) => {
+        formulaItems.forEach((item, i) => {
+          if (item.getBoundingClientRect().y < popups[i].offsetHeight - 20) {
+            popups[i].classList.add('moved');
+          } else {
+            popups[i].classList.remove('moved');
+          }
+        });
       });
-    });
+    }
   });
 
   if (screen.width < 1025) {
