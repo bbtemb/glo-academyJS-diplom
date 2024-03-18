@@ -314,6 +314,7 @@
                     placeholder="Введите номер телефона"
                     id="feedback-input1"
                     minlength="18"
+                    required
                   />
                 </div>
                 <button class="button">Перезвоните мне</button>
@@ -466,7 +467,7 @@
         </div>
         <div class="formula-slider-wrap">
           <div class="formula-slider">
-            <div class="formula-item formula-slider__slide">
+            <div class="formula-item formula-slider__slide active">
               <div class="formula-item__icon">
                 <div class="formula-item-popup formula-item-popup-01">
                   Работы ведутся <strong>точно</strong> по графику со строгим
@@ -982,12 +983,7 @@
           /></label>
           <button class="button button-feedback-block">Перезвоните мне</button>
           <div class="checkbox checkbox-feedback-block">
-            <input
-              class="checkbox__input"
-              type="checkbox"
-              id="checkbox2"
-              required=""
-            />
+            <input class="checkbox__input" type="checkbox" id="checkbox2" />
             <label class="checkbox__label" for="checkbox2"></label>
             <div class="checkbox__descr">
               Нажимая на кнопку, Вы даете согласие на
@@ -1098,8 +1094,18 @@
             id="portfolio-counter"
           >
             <div class="slider-counter-content">
-              <div class="slider-counter-content__current">1</div>
-              <div class="slider-counter-content__total">3</div>
+              <div
+                class="slider-counter-content__current"
+                id="mobile-counter__current"
+              >
+                1
+              </div>
+              <div
+                class="slider-counter-content__total"
+                id="mobile-counter__total"
+              >
+                3
+              </div>
             </div>
           </div>
           <div
@@ -1127,7 +1133,6 @@
           <div
             class="slider-arrow-tablet-mobile slider-arrow-tablet-mobile_right tablet-hide desktop-hide"
             id="portfolio-arrow-mobile_right"
-            disabled="disabled"
           >
             <svg
               width="25"
@@ -1496,6 +1501,7 @@
                   placeholder="Введите номер телефона"
                   id="feedback-input3"
                   minlength="18"
+                  required
                 />
               </div>
               <button class="button">Перезвоните мне</button>
@@ -1753,12 +1759,7 @@
           /></label>
           <button class="button button-feedback-block">Перезвоните мне</button>
           <div class="checkbox checkbox-feedback-block">
-            <input
-              class="checkbox__input"
-              type="checkbox"
-              id="checkbox4"
-              required=""
-            />
+            <input class="checkbox__input" type="checkbox" id="checkbox4" />
             <label class="checkbox__label" for="checkbox4"></label>
             <div class="checkbox__descr">
               Нажимая на кнопку, Вы даете согласие на
@@ -2145,12 +2146,7 @@
           /></label>
           <button class="button button-feedback-block">Перезвоните мне</button>
           <div class="checkbox checkbox-feedback-block">
-            <input
-              class="checkbox__input"
-              type="checkbox"
-              id="checkbox5"
-              required=""
-            />
+            <input class="checkbox__input" type="checkbox" id="checkbox5" />
             <label class="checkbox__label" for="checkbox5"></label>
             <div class="checkbox__descr">
               Нажимая на кнопку, Вы даете согласие на
@@ -2367,6 +2363,7 @@
               placeholder="Введите номер телефона"
               id="feedback-input6"
               minlength="18"
+              required
             />
           </div>
           <button class="button button-consultation">Перезвоните мне</button>
