@@ -71,6 +71,12 @@ const popupTransparency = () => {
     });
   }
 
+  if (screen.width > 1090) {
+    blocks.forEach((item) => {
+      item.classList.remove('hidden');
+    });
+  }
+
   body.addEventListener('click', (e) => {
     if (e.target.closest('.transparency-item__img')) {
       popup.style.visibility = 'visible';
