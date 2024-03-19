@@ -33,7 +33,6 @@ sendForm('feedback5');
 sendForm('feedback6');
 
 window.addEventListener('resize', () => {
-  console.log('change');
   hints();
   popupTransparency();
   sliderRepairTypes();
